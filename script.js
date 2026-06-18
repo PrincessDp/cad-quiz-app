@@ -25,6 +25,10 @@ function showQuestion() {
     document.getElementById("options").innerHTML = "";
     document.getElementById("pagination").innerText = "";
     document.getElementById("next-btn").style.display = "none";
+
+    // Final score percentage
+    let finalPercentage = ((score / questions.length) * 100).toFixed(2);
+    document.getElementById("score").innerText = `Final Score: ${score}/${questions.length} (${finalPercentage}%)`;
     return;
   }
 
@@ -77,8 +81,9 @@ function showQuestion() {
   // Pagination display
   document.getElementById("pagination").innerText = `Question ${currentQuestion + 1} of ${questions.length}`;
 
-  // Score display
-  document.getElementById("score").innerText = `Score: ${score}/${questions.length}`;
+  // Score display with percentage
+  let percentage = ((score / questions.length) * 100).toFixed(2);
+  document.getElementById("score").innerText = `Score: ${score}/${questions.length} (${percentage}%)`;
 }
 
 function checkAnswer(selected, correct) {
